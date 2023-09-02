@@ -1,0 +1,21 @@
+venv/
+env/
+*.pyc
+__pycache__/
+# Python-specific
+*.pyc
+__pycache__/
+*.pyo
+*.egg-info/
+dist/
+build/
+# IDE/Editor specific
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+# Config files
+*.config
+*.conf

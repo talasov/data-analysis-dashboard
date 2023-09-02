@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "64aa53ef-1e46-41c0-a24d-35e22abc6a67",
+		"name": "DataManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21243274"
+	},
+	"item": [
+		{
+			"name": "Регистрация",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user1\",\r\n    \"password\": \"pasword1\",\r\n    \"email\": \"user1@user.ru\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/accounts/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"accounts",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Загрузка файла",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkzNjkxNDU4LCJpYXQiOjE2OTM2ODA2NTgsImp0aSI6Ijc4YWZmMTQzYjIxMTQ2NmRiMGQ3ZWQ2OWJmNTNiMDBmIiwidXNlcl9pZCI6MX0.5Q_wIZgWORgPEE619d7OZyiRhduPYjN8eaEH6ZSVFSE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/talas/Desktop/table2.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/upload/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"upload",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Просмотр всех файлов",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/files/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"files",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Просмотр файла по ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/files/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"files",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Сортировка по столбцам в файле",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkzNjkxNDU4LCJpYXQiOjE2OTM2ODA2NTgsImp0aSI6Ijc4YWZmMTQzYjIxMTQ2NmRiMGQ3ZWQ2OWJmNTNiMDBmIiwidXNlcl9pZCI6MX0.5Q_wIZgWORgPEE619d7OZyiRhduPYjN8eaEH6ZSVFSE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"file_id\": 2,\r\n  \"columns\": [\"cache\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/all_data/?=2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"all_data",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "2"
+						},
+						{
+							"key": "",
+							"value": "cache",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаления данных",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkzNjkxNDU4LCJpYXQiOjE2OTM2ODA2NTgsImp0aSI6Ijc4YWZmMTQzYjIxMTQ2NmRiMGQ3ZWQ2OWJmNTNiMDBmIiwidXNlcl9pZCI6MX0.5Q_wIZgWORgPEE619d7OZyiRhduPYjN8eaEH6ZSVFSE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/files/2/delete/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"files",
+						"2",
+						"delete",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
